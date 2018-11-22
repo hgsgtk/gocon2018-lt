@@ -1,0 +1,27 @@
+Docker development environment for Go starting with realize
+- realizeで始めるDocker開発環境 - #gocon
+25 Nov 2018
+Tags: go golang docker gorealize
+
+Kazuki Higashiguchi
+Server Side Enginner, Base, Inc
+higasgt@gmail.com
+https://speakerdeck.com/higasgt
+@higasgt
+
+* Agenda
+
+- Background
+- Docker
+- Gorealize
+
+* realize
+
+- https://github.com/oxequa/realize
+
+* Getting Started
+
+
+* .realize.yaml
+
+.code .realize.yaml 
