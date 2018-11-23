@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  api:
+    build:
+      context: "."
+      dockerfile: "docker/localhost/Dockerfile"
+    ports:
+      - "8080:80"
+    restart: on-failure
+    volumes:
+      - ./app:/go/src/github.com/higasgt/gocon-lt:cached
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/.healthcheck"]
+      interval: 1m30s
+      timeout: 10s
+      retries: 3

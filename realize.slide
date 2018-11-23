@@ -15,13 +15,44 @@ https://speakerdeck.com/higasgt
 - Docker
 - Gorealize
 
+* Background
+
+- Go application development
+- docker network内で他container serviceと連携
+
 * realize
 
 - https://github.com/oxequa/realize
 
 * Getting Started
 
+- go get xxx
+- realize
 
 * .realize.yaml
 
 .code .realize.yaml 
+
+* Introduce
+
+- Host PCのディレクトリをcontainerにマウント
+- マウントしたファイル群をrealizeがwatch
+- ファイル変更を検知してrebuild
+
+* Dockerfile
+
+.code Dockerfile
+
+* docker-entrypoint-local.sh
+
+- depなどの依存性解決はimage buildではなく、container起動時に行う
+
+.code docker-entrypoint-local.sh
+
+* docker-compose.yml
+
+- volume mount
+- `cached` オプションを付けることで高速化を図る
+.code docker-compose.yml
+
+* Summary
