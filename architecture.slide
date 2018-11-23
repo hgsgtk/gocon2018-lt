@@ -1,0 +1,41 @@
+Server Side Architecture Strategy for Begginers
+- 社内初導入のAPIサーバーサイドアーキテクチャ設計戦略 - #gocon
+25 Nov 2018
+Tags: go golang architecture
+
+Kazuki Higashiguchi
+Server Side Enginner, BASE
+higasgt@gmail.com
+https://speakerdeck.com/higasgt
+@higasgt
+
+* Agenda
+
+* Definition of Server Side Architecture
+
+- Server Side Architectureとは
+- なぜ必要なのか
+
+* 理想と現実
+
+- 理想的には一発で正解を出したい
+- 現実的には要件・スキル的な問題で正解が出せない
+
+* 方針
+
+- 作っては壊しを繰り返す
+- 設計に対する補助材料としてユニットテストを書いていく
+- 大胆なリファクタリングを可能とするリファクタリングを行う
+
+* 現時点
+
+- 現時点でのフォルダ構成
+
+* 反省点
+
+- トランザクションをどう扱うかを早期に検討しておく
+
+* 要素
+
+- DI戦略
+
