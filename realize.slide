@@ -31,7 +31,7 @@ https://speakerdeck.com/higasgt
 
 * .realize.yaml
 
-.code .realize.yaml 
+.code realize/.realize.yaml 
 
 * Introduce
 
@@ -41,18 +41,18 @@ https://speakerdeck.com/higasgt
 
 * Dockerfile
 
-.code Dockerfile
+.code realize/Dockerfile
 
 * docker-entrypoint-local.sh
 
 - depなどの依存性解決はimage buildではなく、container起動時に行う
 
-.code docker-entrypoint-local.sh
+.code realize/docker-entrypoint-local.sh
 
 * docker-compose.yml
 
 - volume mount
 - `cached` オプションを付けることで高速化を図る
-.code docker-compose.yml
+.code realize/docker-compose.yml
 
 * Summary

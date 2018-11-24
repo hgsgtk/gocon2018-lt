@@ -1,0 +1,6 @@
+├── domain
+│   ├── model
+│   └── repository
+├── infrastructure
+│   └── datastore
+└── controller
