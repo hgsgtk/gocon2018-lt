@@ -1,5 +1,5 @@
-Server Side Architecture Strategy for Begginers
-- 社内初導入のAPIサーバーサイドアーキテクチャ設計戦略 - #gocon
+Server Side Architecture Strategy for Beginners
+- 社内初導入のGo製APIのサーバサイドアーキテクチャ設計戦略 - #gocon
 25 Nov 2018
 Tags: go golang architecture
 
@@ -9,80 +9,113 @@ higasgt@gmail.com
 https://speakerdeck.com/higasgt
 @higasgt
 
-* Agenda
+* About this talk
+
+- Goを業務で初利用するチームのサーバーサイドアーキテクチャの事例
+- チームのスキル状況に合わせた段階的な改良を行っていく
+
+* About me
+
+- Twitter
+.link https://twitter.com/higasgt @higasgt
+- Kazuki Higashiguchi
+- Server Side Enginner (Go, PHP, ...etc)
+- BASE, Inc
+
+* Team Background
+
+- 堅くロジックが書けて、パフォーマンスがいいものが欲しい
+- → Go言語を技術スタックとして採用
+- Goを業務でがっつり使用した経験がないチーム状況
+- → 開発チーム全体で統一的な実装方針を持ちたい
+- 新規事業につき業務要件も変わりうる
+- → 入出力とビジネスロジックを分離し、変更容易な実装を保ちたい
 
 * Definition of Server Side Architecture
 
-- Server Side Architectureとは
-- なぜ必要なのか
+- レイヤ構造
+- packageをどう切っていくか
+- 依存関係を単一方向に制限する
+- レイヤ内の凝縮度を高める
 
-* なぜ必要としたか
+* Problem of choose architecture
 
-- パッケージ構成の検討
-- 統一的な実装
-- レイヤーの凝縮度
-- ビジネスロジックの明確化
-- ユニットテストの容易性
+- 理想的には最適な構造を最初から決めたい
+- 現実的には、ノウハウ・スキル・要件の見通しが十分に出揃わない
+- チーム状況・要件に応じて最適なものは異なるため、ネット上に公開されているものをそのまま使えばいいわけではない。
+- →実践しながら掴んでいくしか無い
 
-* 背景
+* How to proceeding
 
-- お金を扱う手堅いロジックを扱う、かつ機能をAPIで提供するため、堅くロジックが書けて、パフォーマンスがいいものが欲しいため、Go言語を技術スタックとして採用
-- 当時のチーム状況は、Goを業務でがっつり使用した経験がないメンバー
-- 新規事業につき業務要件も変わりうる
+- おそらく理想らしき目標地点を仮定義
+- 「作っては壊しを繰り返す」ことを共通認識として宣言しておく
+- 身の丈×120%、現状のチームの平均スキルの120%で実践できる構造を作っていく
 
-* 理想と現実
+* How to proceeding: Unit testing
+- 「ユニットテストを書く」ことに対する意味付けをする
+- テストを書くことで、結合度など設計に対するフィードバックを得る
+- 「作っては壊す」といった大胆なリファクタリングを可能にするため
 
-- 理想的には一発で正解を出したい
-- 現実的には要件・スキル的な問題で正解が出せない
+* How to proceeding: package
+- なるべく標準パッケージを利用する
+- Go言語自体を覚えれば書ける状態にするため
+- interfaceの使い方などGo言語を使うために必要な技法を理解するため
+- 理解度に合わせて「便利になる」ライブラリ・機構を導入・準備していく
 
-* 方針
+* Transition of architecture
 
-- 作っては壊しを繰り返す
-- 設計に対する補助材料としてユニットテストを書いていく
-- ユニットテストを書くことで得られる設計に対するフィードバック
-- 大胆なリファクタリングを可能とするユニットテストを準備する
-- 身の丈×120%
-- なるべく標準パッケージを利用し、実装した結果発生した課題に対して外部ライブラリを導入していく
-
-* 初版
-
+* Initial arch Simple Model-Controller
 .code architecture/initial.txt
-
 - controllerとmodelしかないシンプルな構成
-- サンプルコードを用意してGoのAPI開発に慣れる
-- interfaceを使用した抽象化はいったんせず密にmodel内にデータベースを扱うなどの技術的実装も含める
+- サンプルコードも用意、GoのAPI開発に慣れる
+- 密にmodel内にデータベースを扱うなどの技術的実装も含めている状態
 
-* 第二版
-
+* Second arch Model-Controller + DIP
 .code architecture/second.txt
-
 - ドメイン層に存在していた技術的実装を分離する
-- 抽象のレポジトリ層を挟み、技術的な実装はdatastoreパッケージに移動
+- 抽象的にデータ操作を扱うrepositoryを挟み、技術的な実装はdatastoreパッケージに移動
 - interfaceの使い方をここで慣れてもらい、ユニットテスト時には自前でモック実装を実装してもらい流れを掴む
 
-* 第三版
+* Third arch Layered Arch + DIP
 
 .code architecture/third.txt
 
-- 処理の複雑化に伴いservice パッケージを導入
+- 処理の複雑化に伴い制御役となるserviceパッケージを導入
 : ここ制御役などの名前探す
-
-- トランザクションを伴う処理実装に入る前にこれを入れておく必要があった。
-- トランザクションをどう扱うかによって大幅な書換が発生する可能性がある。
+- トランザクションを扱う際の実装方法を共有
 - ユニットテスト時のモック量が増えてくるのに伴い、gomockの利用を開始する
 
 : トランザクションを扱うためのコード例
 : DI戦略の検討
 
-* 現時点
-
-- 現時点でのフォルダ構成
+* Current Layered Arch + DIP
 
 .code architecture/final.txt
 
-* 反省点
+* Reflection
 
-- トランザクションをどう扱うかを早期に検討しておく
+* Reflection 1. transaction
+- トランザクションをどう扱うかによって、DI戦略が変わってくる。
+- テストの変更量などに影響があるので、早期に検討しておいたほうがいい。
 
+: ここにコード例を入れる
+* Reflection 2. test helper
+- 最初からユニットテストを愚直に書いてもらうのは理解のために有効だった
+- 途中からコピペ作業になってしまうタイミングがある
+- 「テストを書くのが億劫になる」
+- テストの記述量を減らすテストヘルパーの提供を早めにしておくのがベター
 
+* Summary
 
+- 最終的な姿をレイヤードアーキテクチャ（+DIP）でざっくりと目標決めする
+- 徐々にチームのスキル向上を伴いながら拡張していく
+- 実装しないとわからない肌感の量を増やすためユニットテストをしっかり書いていった。
+
+* References
+
+.link https://speakerdeck.com/deadcheat/thinking-about-patterns-for-packages-in-go Thinking about patterns for packages in Go
+.link https://www.slideshare.net/pospome/go-80591000 Goのサーバサイド実装におけるレイヤ設計とレイヤ内実装について考える
+.link https://speakerdeck.com/mercari/ja-golang-package-composition-for-web-application-the-case-of-mercari-kauru Golang Package Composition for Web Application: The Case of Mercari Kauru
+.link https://postd.cc/is-go-object-oriented/ Goはオブジェクト指向言語だろうか？
+.link https://speakerdeck.com/codehex/mou-du-tesutopatanwozheng-li-siyou-webappbian もう一度テストパターンを整理しよう(WebApp編)
+.link https://medium.com/@hatajoe/clean-architecture-in-go-4030f11ec1b1 Clean Architecture in Go
