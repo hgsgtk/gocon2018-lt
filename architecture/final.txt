@@ -1,11 +1,11 @@
-├── common // 全レイヤー共通で利用する機能群
+├── common // + 全レイヤー共通で利用する機能群
 │   ├── uuidgen
 │   └── validation
-├── config // アプリケーション設定
-├── domain // ビジネスロジック
+├── config
+├── domain
 │   ├── model
 │   └── repository
-├── infrastructure // 技術的実装
+├── infrastructure
 │   ├── clock
 │   ├── datastore
 │   ├── logger
@@ -14,4 +14,4 @@
 │   ├── controller
 │   └── middleware
 ├── service
-└── testutil
+└── testutil // + テストヘルパー群

@@ -58,11 +58,15 @@ Getting Started
 - volume option(cached mount)
 - Hostの該当パスをcontainer serviceにマウント
 
-* Dockerfile
+* Dockerfile for deploy
+
+.code realize/Dockerfile.deploy
+
+* Dockerfile for localhost
 
 .code realize/Dockerfile
 
-- localhostでの開発用Image作成用のDockerfile
+- realize startを起動時に実行、ファイル変更を検知してrerun
 
 * docker-entrypoint-local.sh
 

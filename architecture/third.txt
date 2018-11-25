@@ -8,5 +8,4 @@
 ├── interface
 │   ├── controller
 │   └── middleware
-├── service
-└── testutil
+└── service // + layered architectureのappliction layerに該当
