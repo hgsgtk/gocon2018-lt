@@ -23,6 +23,16 @@ https://speakerdeck.com/higasgt
 - Server Side Enginner (Go, PHP, ...etc)
 - BASE, Inc
 
+* local development
+
+- HostでGoを実行するで単一サービスなら十分
+
+Docker上で開発がしたいケース
+
+- 複数サービスを同一docker network内で動かす
+- 都度、docker compose buildはつらい
+- ファイル変更のたびにlive reloadingしてほしい
+
 * About realize
 
 - https://github.com/oxequa/realize
@@ -87,3 +97,4 @@ Getting Started
 
 .link https://github.com/oxequa/realize github.com/oxequa/realize
 .link https://qiita.com/kunit/items/36d9e5fa710ad26f8010 Docker for Mac の NFS Volume sharing のベンチマーク結果(2018-03-29現在)
+.link https://docs.docker.com/compose/compose-file/ Compose file version 3 reference
