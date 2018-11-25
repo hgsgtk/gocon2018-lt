@@ -3,13 +3,13 @@ version: '3'
 services:
   api:
     build:
-      context: "."
-      dockerfile: "docker/localhost/Dockerfile"
+      context: "./app/"
+      dockerfile: "docker/localhost/Dockerfile" # localhost用Dockerfile
     ports:
       - "8080:80"
     restart: on-failure
     volumes:
-      - ./app:/go/src/github.com/higasgt/gocon-lt:cached
+      - ./app:/go/src/github.com/higasgt/gocon-lt/app:cached # mount
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8080/.healthcheck"]
       interval: 1m30s

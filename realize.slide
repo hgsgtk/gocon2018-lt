@@ -11,9 +11,8 @@ https://speakerdeck.com/higasgt
 
 * About this talk
 
-- Docker環境でGoの開発環境を整備する
-- docker-composeで立ち上げる
-- 依存性解決にdepを用いている例
+- Docker container上でGoを書く開発環境を整備する
+- docker-composeを用いている・依存性解決にdepを用いている例
 
 * About me
 
@@ -25,17 +24,16 @@ https://speakerdeck.com/higasgt
 
 * local development
 
-- HostでGoを実行するで単一サービスなら十分
-
-Docker上で開発がしたいケース
-
-- 複数サービスを同一docker network内で動かす
-- 都度、docker compose buildはつらい
-- ファイル変更のたびにlive reloadingしてほしい
+- 単一サービスならHost PC上で `go run` でも十分
+- 複数サービスを同一docker network内で動かしたい
+- その際、都度 `docker compose build` はつらい
+- ファイル変更のたびにlive reloadingする仕組み
+- → *oxequa/realize*
 
 * About realize
 
-- https://github.com/oxequa/realize
+.link https://github.com/oxequa/realize github.com/oxequa/realize
+
 - live reload and task runner
 
 Getting Started
@@ -66,7 +64,8 @@ Getting Started
 
 .code realize/Dockerfile
 
-- realize startを起動時に実行、ファイル変更を検知してrerun
+- entrypointで依存性解決
+- container起動時に `realize start` を実行しlive reloading開始
 
 * docker-entrypoint-local.sh
 
@@ -94,8 +93,9 @@ Getting Started
 
 * Summary
 
-- Go applicationをDocker上で快適に開発するためのrealizeの利用
-- Host PCのpathをcontainer serviceにmountしてlive reloading
+- Go applicationをDocker上で快適に開発するための *oxequa/realize* の利用
+- Host PCのpathをcontainer serviceにmount
+- `realize start` にてlive reloading
 
 * References
 

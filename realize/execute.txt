@@ -1,4 +1,4 @@
--> % docker-compose logs -f
+-> % docker-compose up
 
 gocon-lt_1_ad42409d0d20 | [10:55:19][APP] : Watching 399 file/s 114 folder/s
 gocon-lt_1_ad42409d0d20 | [10:55:19][APP] : Install started
