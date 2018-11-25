@@ -4,8 +4,8 @@ ENV GOPATH /go
 ENV PATH $GOPATH/bin:/usr/local/go/bin:$PATH
 ENV APPDIR $GOPATH/src/github.com/higasgt/gocon-lt
 
-WORKDIR ${GOPATH}/src/github.com/higasgt/gocon-lt
-COPY . ${GOPATH}/src/github.com/higasgt/gocon-lt
+WORKDIR ${APPDIR}
+COPY . ${APPDIR}
 
 RUN apk add --no-cache bash ca-certificates curl gcc \
     git musl-dev openssh tzdata
