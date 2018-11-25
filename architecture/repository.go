@@ -1,6 +1,6 @@
 type DBHandler interface {
 	Execer
-	Queryer
+	Querier
 	Preparer
 }
 
