@@ -136,3 +136,4 @@ Server Side Architecture
 .link https://postd.cc/is-go-object-oriented/ Goはオブジェクト指向言語だろうか？
 .link https://speakerdeck.com/codehex/mou-du-tesutopatanwozheng-li-siyou-webappbian もう一度テストパターンを整理しよう(WebApp編)
 .link https://medium.com/@hatajoe/clean-architecture-in-go-4030f11ec1b1 Clean Architecture in Go
+.link https://medium.com/@timakin/go-api-testing-173b97fb23ec GoのAPIのテストにおける共通処理
