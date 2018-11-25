@@ -1,4 +1,4 @@
-Docker development environment for Go starting with realize
+Docker Go development environment starting with realize
 - realizeで始めるDocker開発環境 - #gocon
 25 Nov 2018
 Tags: go golang docker gorealize
@@ -63,7 +63,7 @@ Getting Started
 
 * .realize.yaml
 
-.code realize/.realize.yaml 
+.code realize/.realize.yaml
 
 * Setup completed
 
