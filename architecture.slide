@@ -58,9 +58,9 @@ https://speakerdeck.com/higasgt
 - *「作っては壊しを繰り返す」* ことを共通認識として宣言しておく
 - *身の丈×120%* 、現状のチームの平均スキルの120%で実践できる構造へ
 
-* How to proceeding: Initial view
+* How to proceeding: Initial outlook
 
-.image architecture/arch-design.svg
+.image architecture/arch-design.png 550 750
 
 * How to proceeding: Unit testing
 - 「ユニットテストを書く」ことに対する *意味付け* をする
