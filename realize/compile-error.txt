@@ -1,0 +1,4 @@
+gocon-lt_1_9d9d0530024e | [15:03:48][APP] : Install
+gocon-lt_1_9d9d0530024e |  # github.com/higasgt/gocon-lt/app/config
+gocon-lt_1_9d9d0530024e | config/config.go:30:12: undefined: HTTPConfig
+gocon-lt_1_9d9d0530024e | exit status 2

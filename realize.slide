@@ -88,9 +88,17 @@ Getting Started
 - docker-entrypoint-local.sh: 依存性解決を起動時に行う
 - .realize.yaml: realizeの設定ファイル
 
-* result
+* Result
 
 .code realize/execute.txt
+
+- ファイル変更の検知、rerun
+
+.code realize/file-change.txt
+
+- ファイル変更後compileが落ちる場合
+
+.code realize/compile-error.txt
 
 * Summary
 
