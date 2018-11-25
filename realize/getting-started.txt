@@ -1,0 +1,6 @@
+-> % go get github.com/oxequa/realize
+-> % realize start
+[09:40:15][MUX-RESTAPI] : Watching 1 file/s 1 folder/s
+[09:40:53][MUX-RESTAPI] : GO changed /Users/hogehoge/go/src/github.com/higasgt/go-snippets/mux-restapi/server.go
+[09:41:41][MUX-RESTAPI] : GO changed /Users/hogehoge/go/src/github.com/higasgt/go-snippets/mux-restapi/server.go
+

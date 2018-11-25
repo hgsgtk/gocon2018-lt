@@ -1,4 +1,4 @@
-settings:
+settings: # realize start(init) で生成される
   legacy:
     force: false
     interval: 0s

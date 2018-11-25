@@ -1,0 +1,12 @@
+-> % docker-compose logs -f
+
+gocon-lt_1_ad42409d0d20 | [10:55:19][APP] : Watching 399 file/s 114 folder/s
+gocon-lt_1_ad42409d0d20 | [10:55:19][APP] : Install started
+gocon-lt_1_ad42409d0d20 | [10:55:26][APP] : Install completed in 7.130 s
+gocon-lt_1_ad42409d0d20 | [10:55:26][APP] : Running..
+gocon-lt_1_ad42409d0d20 | [10:55:27][APP] : {"level":"info","ts":"2018-11-25T10:55:27.073+0900","msg":">> Start listening HTTP request port 80.\n","out":"stdout"}
+gocon-lt_1_ad42409d0d20 | [10:56:57][APP] : GO changed /go/src/github.com/gocon-lt/realize/app/main.go
+gocon-lt_1_ad42409d0d20 | [10:56:57][APP] : Install started
+gocon-lt_1_ad42409d0d20 | [10:56:59][APP] : Install completed in 2.261 s
+gocon-lt_1_ad42409d0d20 | [10:56:59][APP] : Running..
+gocon-lt_1_ad42409d0d20 | [10:56:59][APP] : {"level":"info","ts":"2018-11-25T10:56:59.620+0900","msg":">> Change output: Start listening HTTP request port 80.\n","out":"stdout"}

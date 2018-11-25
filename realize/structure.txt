@@ -1,0 +1,13 @@
+├── app
+│   ├── Gopkg.lock
+│   ├── Gopkg.toml
+│   ├── docker
+│   │   ├── deploy // deploy用Image
+│   │   │   └── Dockerfile
+│   │   └── localhost // localhost用Image(live reloading)
+│   │       └── Dockerfile
+│   ├── docker-entrypoint-local.sh
+│   ├── docker-entrypoint.sh
+│   ├── main.go
+│   └── .realize.yaml
+└── docker-compose.yml

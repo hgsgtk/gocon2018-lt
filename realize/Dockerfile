@@ -13,7 +13,7 @@ RUN apk add --no-cache bash ca-certificates curl gcc \
 RUN curl -L -s https://github.com/golang/dep/releases/download/v0.5.0/dep-linux-amd64 -o /go/bin/dep
 RUN chmod +x /go/bin/dep
 
-RUN go get github.com/tockins/realize
+RUN go get github.com/oxequa/realize
 
 ENTRYPOINT ["./docker-entrypoint-local.sh"]
 CMD ["realize", "start"]

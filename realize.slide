@@ -9,50 +9,81 @@ higasgt@gmail.com
 https://speakerdeck.com/higasgt
 @higasgt
 
-* Agenda
+* About this talk
 
-- Background
-- Docker
-- Gorealize
+- Docker環境でGoの開発環境を整備する
+- docker-composeで立ち上げる
+- 依存性解決にdepを用いている例
 
-* Background
+* About me
 
-- Go application development
-- docker network内で他container serviceと連携
+- Twitter
+.link https://twitter.com/higasgt @higasgt
+- Kazuki Higashiguchi
+- Server Side Enginner (Go, PHP, ...etc)
+- BASE, Inc
 
-* realize
+* About realize
 
 - https://github.com/oxequa/realize
+- live reload and task runner
 
-* Getting Started
+Getting Started
 
-- go get xxx
-- realize
+.code realize/getting-started.txt
 
-* .realize.yaml
+* Overview
 
-.code realize/.realize.yaml 
-
-* Introduce
+.code realize/structure.txt
 
 - Host PCのディレクトリをcontainerにマウント
 - マウントしたファイル群をrealizeがwatch
-- ファイル変更を検知してrebuild
+- ファイル変更を検知してrerun
+
+* docker-compose.yml
+
+.code realize/docker-compose.yml
+
+- localhost用のDockerfileを指定してImage build
+- volume option(cached mount)
+- Hostの該当パスをcontainer serviceにマウント
 
 * Dockerfile
 
 .code realize/Dockerfile
 
-* docker-entrypoint-local.sh
+- localhostでの開発用Image作成用のDockerfile
 
-- depなどの依存性解決はimage buildではなく、container起動時に行う
+* docker-entrypoint-local.sh
 
 .code realize/docker-entrypoint-local.sh
 
-* docker-compose.yml
+- ENTRYPOINTにて指定したshell script
+- depなどの依存性解決はimage build時ではなく、container起動時に行う
 
-- volume mount
-- `cached` オプションを付けることで高速化を図る
-.code realize/docker-compose.yml
+* .realize.yaml
+
+.code realize/.realize.yaml 
+
+* Setup completed
+
+.code realize/structure.txt
+
+- docker-compose.yml: Hostのpathをcontainer serviceにmount
+- localhost/Dockerfile: realize startを実行
+- docker-entrypoint-local.sh: 依存性解決を起動時に行う
+- .realize.yaml: realizeの設定ファイル
+
+* result
+
+.code realize/execute.txt
 
 * Summary
+
+- Go applicationをDocker上で快適に開発するためのrealizeの利用
+- Host PCのpathをcontainer serviceにmountしてlive reloading
+
+* References
+
+.link https://github.com/oxequa/realize github.com/oxequa/realize
+.link https://qiita.com/kunit/items/36d9e5fa710ad26f8010 Docker for Mac の NFS Volume sharing のベンチマーク結果(2018-03-29現在)
